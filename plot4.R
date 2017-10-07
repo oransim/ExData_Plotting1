@@ -27,11 +27,13 @@ png(filename = "C:\\Users\\oran\\Documents\\R\\coursera\\Exploratory Data Analys
 par(mar = c(4,5,5,3))
 par(mfrow=c(2,2))
 plot(y=filtered$Global_active_power,x =filtered$datetime , type = "l",ylab = "Global active power",xlab = "")
-plot(y=filtered$Voltage,x =filtered$datetime , type = "l",xlab = "datetime",ylab = "Voltage")
+plot(y=as.numeric(as.character(filtered$Voltage)),x =filtered$datetime , type = "l",xlab = "datetime",ylab = "Voltage")
 plot(y=filtered$Sub_metering_1,x =filtered$datetime , type = "l",xlab = "",ylab = "Energy sub metering")
 lines(filtered$Sub_metering_2,x = filtered$datetime,col = "red" )
 lines(filtered$Sub_metering_3,x = filtered$datetime,col = "blue" )
 legend('topright',c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col = c("black","red","blue"), lty=1,cex = 0.7, bty = "n")
-plot(y=filtered$Global_reactive_power,x =filtered$datetime , type = "l",xlab = "datetime",ylab = "Global reactive power")
+plot(y=as.numeric(as.character(filtered$Global_reactive_power)),x =filtered$datetime , type = "l",xlab = "datetime",ylab = "Global reactive power")
 dev.off()
 
+
+head(filtered$Global_reactive_power)
